@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+<style>
+   h2{
+padding: 20px 35px;
+margin: -10px -50px;
+text-align:center;
+border-radius: 20px 10px 0 0;
+}
+div.container{
+width: 900px;
+height: 610px;
+margin:35px auto;
+font-family: 'jokerman',jokerman;
+}
+div.main{
+width: 300px;
+padding: 10px 50px 25px;
+border: 2px solid gray;
+border-radius: 10px;
+color:lightseagreen;
+font-family: jokerman;
+float:left;
+margin-top:50px;
+}
+input[type=text],input[type=password]{
+width: 100%;
+height: 40px;
+padding: 5px;
+margin-bottom: 25px;
+margin-top: 5px;
+border: 2px solid rgb(202, 29, 179);
+color: #14b637;
+font-size: 16px;
+border-radius: 5px;
+}
+label{
+color: #464646;
+text-shadow: 0 1px 0 #fff;
+font-size: 14px;
+font-weight: bold;
+}
+center{
+font-size:32px;
+}
+
+input[type=button]{
+font-size: 16px;
+background: linear-gradient(#d0ff00c9 5%, #e08afa 100%);
+border: 1px solid #10bcc2;
+color: #4E4D4B;
+font-weight: bold;
+cursor: pointer;
+width: 100%;
+border-radius: 5px;
+padding: 10px 0;
+outline:none;
+}
+input[type=button]:hover{
+background: linear-gradient(#775d14 5%, #ffbc00 100%);
+}
+</style>
+</head>
+<script>
+    var attempt = 5; 
+function validate(){
+var username = document.getElementById("username").value;
+var password = document.getElementById("password").value;
+if ( username == "jaswanth" && password == "jass#123"){
+alert ("Login successfully");
+window.location = "http://www.allindiaexams.in/online-test/online-aptitude-test/all"; // Redirecting to other page.
+return false;
+}
+else{
+attempt --;// Decrement by one.
+alert("You have left "+attempt+" attempt;");
+// Disable After 5 tries
+if( attempt == 0){
+document.getElementById("username").disabled = true;
+document.getElementById("password").disabled = true;
+document.getElementById("submit").disabled = true;
+return false;
+}
+}
+}
+</script>
+<body>
+    <div class="container">
+        <div class="main">
+        <h2>Login</h2>
+        <form id="form_id" method="post" name="myform">
+        <label>User Name :</label>
+        <input type="text" name="username" id="username"/><br><br><br>
+        <label>Password :</label>&nbsp&nbsp&nbsp;
+        <input type="password" name="password" id="password"/><br><br><br>
+        <input type="button" value="Login" id="submit" onclick="validate()"/>
+        </form>
+        </div>
+        </div>
+</body>
+</html>
